@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#f3f8fd">
+	<meta name="description" content="Café Bruma: café de especialidad, pan recién hecho y buenos momentos en el corazón de la ciudad.">
+	<title>Blü Coffee Club — Un buen día empieza aquí</title>
+	<link rel="icon" type="image/jpeg" href="Blu.jpg">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+	<header class="container topbar">
+		<a class="brand" href="#inicio" aria-label="Bruma Café, inicio"><img class="brand-mark" src="Blu.jpg" alt="" aria-hidden="true"> Blü Coffee Club</a>
+		<nav class="nav-links" aria-label="Navegación principal">
+			<a href="#inicio">Inicio</a>
+			<a href="#nosotros">Nosotros</a>
+			<a href="pages/menu.html">Menú</a>
+		</nav>
+		<a class="nav-cta" href="#visitanos">Encuéntranos <span aria-hidden="true">↗</span></a>
+	</header>
+
+	<main>
+		<section class="container hero" id="inicio">
+			<div>
+				<div class="eyebrow">Tu pausa favorita</div>
+				<h1>Un buen día empieza <em>aquí.</em></h1>
+				<p class="hero-copy">Café de especialidad, pan recién hecho y ese ratito que hace que todo vaya mejor. Pasa, ponte cómodo y disfruta.</p>
+				<div class="hero-actions">
+					<a class="button" href="pages/menu.html">Descubre el menú <span aria-hidden="true">→</span></a>
+					<a class="text-link" href="#nosotros">Conoce Bruma <span aria-hidden="true">↗</span></a>
+				</div>
+			</div>
+			<div class="hero-visual" aria-label="Una taza de café servida en Bruma">
+				<div class="hero-photo"><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1100&q=85" alt="Café recién preparado sobre una mesa de madera"></div>
+				<div class="photo-note"><span class="note-icon" aria-hidden="true">✦</span><span><strong>Hecho con cariño</strong><small>Del grano a tu taza</small></span></div>
+			</div>
+		</section>
+
+		<section class="coffee-match-section" aria-labelledby="coffee-match-title">
+			<div class="container coffee-match">
+				<div class="coffee-match-copy">
+					<div class="eyebrow">Tu antojo, tu café</div>
+					<h2 id="coffee-match-title">¿Qué necesitas<br>en este momento?</h2>
+					<p>Cuéntanos cómo te sientes y encuentra tu próximo favorito de Blü.</p>
+					<div class="mood-options" role="group" aria-label="Elige cómo te sientes">
+						<button class="mood-button" type="button" data-mood="energia" aria-pressed="false"><span aria-hidden="true">☀</span> Un impulso</button>
+						<button class="mood-button" type="button" data-mood="calma" aria-pressed="false"><span aria-hidden="true">☁</span> Algo suave</button>
+						<button class="mood-button" type="button" data-mood="fresco" aria-pressed="false"><span aria-hidden="true">❄</span> Algo fresco</button>
+					</div>
+				</div>
+				<div class="match-result" id="match-result" aria-live="polite" aria-atomic="true">
+					<div class="match-cup" aria-hidden="true">☕</div>
+					<div class="match-result-copy">
+						<span class="match-label">Tu match de hoy</span>
+						<h3 id="match-name">Elige tu mood</h3>
+						<p id="match-description">Y te recomendamos algo rico, hecho especialmente para este momento.</p>
+						<a class="match-link" href="pages/menu.html">Ver el menú <span aria-hidden="true">→</span></a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="container visit-section" id="nosotros">
+			<div>
+				<div class="eyebrow">Un rincón para quedarse</div>
+				<h2>Más que café,<br>un lugar para ti.</h2>
+				<p class="visit-copy">En Bruma creemos que las mejores conversaciones empiezan alrededor de una buena taza. Somos un pequeño café de barrio, con café de origen y las puertas siempre abiertas.</p>
+				<div class="hours"><strong>Lun – Vie</strong><span>8:00 – 19:00</span><strong>Sáb – Dom</strong><span>9:00 – 17:00</span></div>
+			</div>
+			<div class="visit-image"><img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=80" alt="Interior cálido de una cafetería" loading="lazy"></div>
+		</section>
+	</main>
+
+	<footer id="visitanos">
+		<div class="container footer-inner"><a class="brand" href="#inicio"><img class="brand-mark" src="Blu.jpg" alt="Logo BLÜ" aria-hidden="true"> Blü Coffee Club</a><p>San Luis 132 Col. Unidad Nacional</p><p>© 2025 Blü Coffee Club</p></div>
+	</footer>
+	<script src="assets/js/main.js" defer></script>
+</body>
+</html>
