@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#f3f8fd">
 	<meta name="description" content="Café Bruma: café de especialidad, pan recién hecho y buenos momentos en el corazón de la ciudad.">
+	<meta name="supabase-url" content="">
+	<meta name="supabase-anon-key" content="">
 	<title>Blü Coffee Club — Un buen día empieza aquí</title>
 	<link rel="icon" type="image/jpeg" href="Blu.jpg">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,11 +17,16 @@
 <body>
 	<header class="container topbar">
 		<a class="brand" href="#inicio" aria-label="Bruma Café, inicio"><img class="brand-mark" src="Blu.jpg" alt="" aria-hidden="true"> Blü Coffee Club</a>
-		<nav class="nav-links" aria-label="Navegación principal">
+		<nav class="nav-links" id="primary-navigation" aria-label="Navegación principal">
 			<a href="#inicio">Inicio</a>
 			<a href="#nosotros">Nosotros</a>
 			<a href="pages/menu.html">Menú</a>
+			<a href="#opiniones">Opiniones</a>
+			<a class="mobile-nav-cta" href="#visitanos">Encuéntranos <span aria-hidden="true">↗</span></a>
 		</nav>
+		<button class="nav-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Abrir menú de navegación">
+			<span class="nav-toggle-icon" aria-hidden="true">☰</span>
+		</button>
 		<a class="nav-cta" href="#visitanos">Encuéntranos <span aria-hidden="true">↗</span></a>
 	</header>
 
@@ -73,11 +80,103 @@
 			</div>
 			<div class="visit-image"><img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=80" alt="Interior cálido de una cafetería" loading="lazy"></div>
 		</section>
+
+		<section class="reviews-section" id="opiniones" aria-labelledby="reviews-title" data-reviews>
+			<div class="container">
+				<div class="section-heading reviews-heading">
+					<div>
+						<div class="eyebrow">Tu experiencia nos inspira</div>
+						<h2 id="reviews-title">Opiniones de nuestra comunidad</h2>
+					</div>
+					<p class="section-intro">Lee las experiencias de nuestros clientes y comparte la tuya.</p>
+				</div>
+				<div class="reviews-layout">
+					<div class="reviews-list" id="reviews-list" aria-live="polite" aria-busy="true">
+						<p class="reviews-empty">Cargando opiniones aprobadas...</p>
+					</div>
+					<form class="review-form" id="review-form">
+						<h3>Deja tu opinión</h3>
+						<label for="review-name">Tu nombre</label>
+						<input id="review-name" name="name" type="text" minlength="2" maxlength="60" autocomplete="name" required>
+
+						<fieldset class="review-rating">
+							<legend>Tu calificación</legend>
+							<div class="review-rating-options">
+								<input class="visually-hidden" id="review-rating-1" name="rating" type="radio" value="1" required>
+								<label for="review-rating-1" data-rating="1"><span aria-hidden="true">★</span><span class="visually-hidden">1 estrella</span></label>
+								<input class="visually-hidden" id="review-rating-2" name="rating" type="radio" value="2">
+								<label for="review-rating-2" data-rating="2"><span aria-hidden="true">★</span><span class="visually-hidden">2 estrellas</span></label>
+								<input class="visually-hidden" id="review-rating-3" name="rating" type="radio" value="3">
+								<label for="review-rating-3" data-rating="3"><span aria-hidden="true">★</span><span class="visually-hidden">3 estrellas</span></label>
+								<input class="visually-hidden" id="review-rating-4" name="rating" type="radio" value="4">
+								<label for="review-rating-4" data-rating="4"><span aria-hidden="true">★</span><span class="visually-hidden">4 estrellas</span></label>
+								<input class="visually-hidden" id="review-rating-5" name="rating" type="radio" value="5">
+								<label for="review-rating-5" data-rating="5"><span aria-hidden="true">★</span><span class="visually-hidden">5 estrellas</span></label>
+							</div>
+						</fieldset>
+
+						<label for="review-comment">Tu comentario</label>
+						<textarea id="review-comment" name="comment" rows="4" minlength="10" maxlength="500" placeholder="Cuéntanos qué disfrutaste..." required></textarea>
+						<div class="review-honeypot" aria-hidden="true">
+							<label for="review-website">Sitio web</label>
+							<input id="review-website" name="website" type="text" tabindex="-1" autocomplete="off">
+						</div>
+						<p class="review-form-note">Las opiniones se revisan antes de publicarse.</p>
+						<button class="button" type="submit" disabled>Enviar opinión</button>
+						<p class="review-status" id="review-status" role="status" aria-live="polite">Configura el servicio de reseñas para habilitar los envíos.</p>
+					</form>
+				</div>
+			</div>
+		</section>
+
+		<section class="location-section" id="visitanos" aria-labelledby="location-title">
+			<div class="container location-content">
+				<div class="location-details">
+					<div class="eyebrow">Aquí te esperamos</div>
+					<h2 id="location-title">Encuéntranos</h2>
+					<p class="location-address">C. San Luis Potosí 132, Unidad Nacional,<br>89410 Cd. Madero, Tamps., México</p>
+					<a class="button" href="https://www.google.com/maps/dir/?api=1&amp;destination=C.%20San%20Luis%20Potos%C3%AD%20132%2C%20Unidad%20Nacional%2C%2089410%20Cd.%20Madero%2C%20Tamps.%2C%20M%C3%A9xico" target="_blank" rel="noopener noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a>
+				</div>
+				<div class="location-map">
+					<iframe
+						title="Mapa de Google con la ubicación de Blü Coffee Club en Ciudad Madero"
+						src="https://maps.google.com/maps?q=22.271717%2C-97.847779&amp;z=16&amp;output=embed"
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+						allowfullscreen>
+					</iframe>
+				</div>
+			</div>
+		</section>
 	</main>
 
-	<footer id="visitanos">
+	<footer>
 		<div class="container footer-inner"><a class="brand" href="#inicio"><img class="brand-mark" src="Blu.jpg" alt="Logo BLÜ" aria-hidden="true"> Blü Coffee Club</a><p>San Luis 132 Col. Unidad Nacional</p><p>© 2025 Blü Coffee Club</p></div>
 	</footer>
+	<aside class="chatbot" data-chatbot>
+		<section class="chatbot-panel" id="chatbot-panel" aria-labelledby="chatbot-title" hidden>
+			<header class="chatbot-header">
+				<div><span class="chatbot-status" aria-hidden="true"></span><h2 id="chatbot-title">Asistente Blü</h2><p>Estamos aquí para ayudarte</p></div>
+				<button class="chatbot-close" type="button" aria-label="Cerrar chat">×</button>
+			</header>
+			<div class="chatbot-messages" role="log" aria-live="polite" aria-relevant="additions">
+				<p class="chatbot-message chatbot-message--bot">¡Hola! Puedo ayudarte con horarios, menú y ubicación. ¿Qué te gustaría saber?</p>
+			</div>
+			<nav class="chatbot-quick-questions" aria-label="Preguntas frecuentes">
+				<button type="button" data-chat-topic="horarios">Horarios</button>
+				<button type="button" data-chat-topic="menu">Menú</button>
+				<button type="button" data-chat-topic="ubicacion">Ubicación</button>
+			</nav>
+			<form class="chatbot-form" aria-label="Envía una pregunta al asistente">
+				<label class="visually-hidden" for="chatbot-input">Escribe tu pregunta</label>
+				<input id="chatbot-input" name="question" type="text" maxlength="240" placeholder="Escribe tu pregunta..." autocomplete="off" required>
+				<button type="submit" aria-label="Enviar pregunta"><span aria-hidden="true">➤</span></button>
+			</form>
+		</section>
+		<button class="chatbot-toggle" type="button" aria-controls="chatbot-panel" aria-expanded="false" aria-label="Abrir asistente">
+			<span class="chatbot-toggle-icon" aria-hidden="true">☕</span><span>¿Te ayudamos?</span>
+		</button>
+	</aside>
 	<script src="assets/js/main.js" defer></script>
 </body>
 </html>
