@@ -1,3 +1,29 @@
+const smoresVideoFrame = document.querySelector('[data-smores-video]');
+
+if (smoresVideoFrame) {
+	const smoresVideo = smoresVideoFrame.querySelector('video');
+	if (smoresVideo) {
+		smoresVideo.loop = true;
+		smoresVideo.addEventListener('ended', () => {
+			smoresVideo.currentTime = 0;
+			const replay = smoresVideo.play();
+			if (replay) replay.catch((error) => console.error('No se pudo reiniciar el video de S’mores:', error));
+		});
+	}
+}
+
+if (smoresVideoFrame && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+	smoresVideoFrame.classList.add('is-reveal-pending');
+	const smoresVideoObserver = new IntersectionObserver((entries, observer) => {
+		entries.forEach((entry) => {
+			if (!entry.isIntersecting) return;
+			entry.target.classList.add('is-visible');
+			observer.unobserve(entry.target);
+		});
+	}, { threshold: 0.15 });
+	smoresVideoObserver.observe(smoresVideoFrame);
+}
+
 const chatbotFaq = {
 	ubicacion: {
 		keywords: ['ubicacion', 'direccion', 'donde', 'llegar', 'mapa', 'coordenada'],
@@ -21,18 +47,18 @@ const chatbotFallback = 'Puedo ayudarte con horarios, menú o ubicación. Prueba
 
 const drinkMatches = {
 	energia: {
-		name: 'Latte de la casa',
-		description: 'Espresso doble y leche cremosa: el empujoncito perfecto para seguir con tu día.',
+		name: 'Americano · $45',
+		description: 'Un clásico de COFFEE & LATTE para seguir con tu día.',
 		icon: '☕'
 	},
 	calma: {
-		name: 'Flat white',
-		description: 'Espresso equilibrado con leche sedosa para disfrutar sin prisa.',
+		name: 'Latte · $69',
+		description: 'Una opción cremosa del menú para disfrutar tu pausa con calma.',
 		icon: '♡'
 	},
 	fresco: {
-		name: 'Cold brew',
-		description: 'Café de extracción lenta, suave y refrescante para cambiar el ritmo.',
+		name: 'Iced Coffee Vainilla · $69',
+		description: 'Café frío con vainilla, ideal cuando se te antoja algo fresco.',
 		icon: '❄'
 	}
 };
